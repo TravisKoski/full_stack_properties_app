@@ -1,11 +1,24 @@
 import {useState} from "react"
-const CreateListingForm = (onCreate) => {
-    const [name, setName] = useState("")
-    const [rate, setRate] = useState("")
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
+const CreateListingForm = () => {
+    const [name, setName] = useState("");
+    const [rate, setRate] = useState("");
+    const redirect = useNavigate();
+    const dbPostUrl = "http://localhost:3000/properties";
+
     //helper for validating the rate input
     const isRateValid = (rate) => {
         return (rate >= 0 && ! isNaN(rate))
-    }
+    };
+    //saves the data in the backend
+    const saveListing = (property) => {
+        axios.post(dbPostUrl, property)
+        .then( 
+            () => {redirect("/properties")}
+        )
+
+    };
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -20,11 +33,11 @@ const CreateListingForm = (onCreate) => {
             return;
         }
         //call the add function which makes the POST request to the back
-        console.log({name,rate});
+        saveListing({name: name, monthly_rate: rate});
         //clear the form fields for the next use
-        setName("")
-        setRate("")
-    }
+        setName("");
+        setRate("");
+    };
 
     return(
         <form onSubmit = {onSubmit}>
