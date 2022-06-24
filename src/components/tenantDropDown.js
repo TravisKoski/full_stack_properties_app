@@ -1,4 +1,5 @@
 import {Dropdown} from "react-bootstrap"
+import TenantDropdownItem from "./tenantDropDownItem.js"
 /* Takes in a property object, and renders a dropdown list of the
 tenants who live in it*/
 const TenantDropdownList = (props) => {
@@ -13,7 +14,7 @@ const TenantDropdownList = (props) => {
 
         <Dropdown.Menu>
             {tenants.map((t)=>(
-                <Dropdown.Item>{t.name}</Dropdown.Item>
+                <Dropdown.Item><TenantDropdownItem tenant = {t}/></Dropdown.Item>
             ))}
             
         </Dropdown.Menu>
