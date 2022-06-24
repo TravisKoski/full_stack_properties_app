@@ -1,4 +1,5 @@
 // This is where the property listing will come from.
+import PropertyContainer from '../components/propertyListTable';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
@@ -23,7 +24,7 @@ const PropertyList = () => {
     }
     return (
         <>
-        {console.log(properties)}
+        <PropertyContainer properties={properties}/>
         </>
     )
 }
