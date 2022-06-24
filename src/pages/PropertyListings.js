@@ -7,6 +7,7 @@ import {useState, useEffect} from 'react'
 const PropertyList = () => { 
     //iniialize the state to be initally empty, and the 'index' URL of my rails api
     const indexUrl = "http://localhost:3000/properties";
+    const baseUrl = "http://localhost:3000/";
     const[properties, setProperties] = useState([]);
 
     useEffect(()=>{
@@ -22,9 +23,17 @@ const PropertyList = () => {
         .catch((error) => {console.error(`error; ${error}`)});
 
     }
+    /* triggered when the delete button is pressed, it deletes the given property*/
+    const deleteProperty = (id) => {
+        //get the new properties list which excludes the deleted one
+        const filteredProperties = properties.filter( (p) => {return (p.id !== id)});
+        axios.delete(`${baseUrl}/properties/${id}`)
+        .then(()=> {setProperties(filteredProperties)})
+
+    }
     return (
         <>
-        <PropertyContainer properties={properties}/>
+        <PropertyContainer properties={properties} onDelete = {deleteProperty}/>
         </>
     )
 }

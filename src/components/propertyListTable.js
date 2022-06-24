@@ -18,6 +18,7 @@ const PropertyContainer = (props) => {
                         <td>{p.name}</td>
                         <td>${p.monthly_rate}</td>
                         <td> <TenantDropdownList property={p}/></td>
+                        <td><Button variant = "primary" onClick = {()=> props.onDelete(p.id)}> Unlist this property</Button></td>
                     </tr>
                 ))}
 
