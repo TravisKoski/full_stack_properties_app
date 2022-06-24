@@ -2,6 +2,8 @@
 import PropertyContainer from '../components/propertyListTable';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import {Button} from "react-bootstrap"
+import {useNavigate} from "react-router-dom"
 
 
 const PropertyList = () => { 
@@ -9,6 +11,7 @@ const PropertyList = () => {
     const indexUrl = "http://localhost:3000/properties";
     const baseUrl = "http://localhost:3000/";
     const[properties, setProperties] = useState([]);
+    const redirect = useNavigate()
 
     useEffect(()=>{
         getAllProperties();
@@ -33,6 +36,7 @@ const PropertyList = () => {
     }
     return (
         <>
+        <Button variant = "primary" onClick = {()=> redirect("/createListing")}>New propery listing</Button>
         <PropertyContainer properties={properties} onDelete = {deleteProperty}/>
         </>
     )

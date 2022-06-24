@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_23_183033) do
   create_table "tenants", force: :cascade do |t|
     t.string "name"
     t.integer "age"
-    t.integer "Property_id", null: false
+    t.integer "Property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["Property_id"], name: "index_tenants_on_Property_id"
