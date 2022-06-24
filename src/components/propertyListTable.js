@@ -1,4 +1,5 @@
 import {Table, Button} from "react-bootstrap"
+import TenantDropdownList from "./tenantDropDown.js"
 
 const PropertyContainer = (props) => {
     let propertyList = props.properties;
@@ -16,7 +17,7 @@ const PropertyContainer = (props) => {
                     <tr>
                         <td>{p.name}</td>
                         <td>${p.monthly_rate}</td>
-                        <td>Tenant dropdown here</td>
+                        <td> <TenantDropdownList property={p}/></td>
                     </tr>
                 ))}
 
