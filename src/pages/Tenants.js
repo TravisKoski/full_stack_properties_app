@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import axios from "axios"
-import {Table} from "react-bootstrap"
+import {Table, Button} from "react-bootstrap"
 const TenantsList = () =>{
 
     const [tenants, setTenants] = useState([]);
@@ -31,6 +31,7 @@ const TenantsList = () =>{
                     <tr>
                         <td>{t.name}</td>
                         <td>{t.age}</td>
+                        <td><Button>Dashboard</Button></td>
                     </tr>
                 ))}
             </tbody>
