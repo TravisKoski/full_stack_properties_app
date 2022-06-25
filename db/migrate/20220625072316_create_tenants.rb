@@ -3,7 +3,8 @@ class CreateTenants < ActiveRecord::Migration[7.0]
     create_table :tenants do |t|
       t.string :name
       t.integer :age
-      t.belongs_to :Property, null: true, foreign_key: true
+      t.string :Property
+      t.string :belongs_to
 
       t.timestamps
     end
