@@ -3,8 +3,9 @@
 import {useParams} from "react-router-dom"
 const TenantDashboard = () =>{
     const tenantId = useParams();
+    console.log(tenantId);
     return(
-        <h1> viewing Tenant with id = {tenantId}</h1>
+        <h1>hello</h1>
      
     )
 }

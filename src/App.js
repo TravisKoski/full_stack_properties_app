@@ -22,8 +22,7 @@ function App() {
         <Route exact path = "/" element = {<Home/>}/>
         <Route exact path ="/properties" element = {<PropertyList/>}/>
         <Route exact path ="/tenants" element = {<TenantList/>}/>
-        <Route exact path ="/tenants/:id" element = {<TenantDashboard/>}>
-        </Route>
+        <Route exact path ="/tenants/:id" element = {<TenantDashboard/>}/>
         <Route exact path ="/createListing" element = {<CreateListingForm/>}/>
         
       </Routes>
