@@ -1,3 +1,3 @@
 class Tenant < ApplicationRecord
-  belongs_to :Property, optional: true
+  belongs_to :property, optional: true
 end
