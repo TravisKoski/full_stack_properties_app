@@ -10,7 +10,7 @@ class TenantsController < ApplicationController
         )
         render json: new_tenant
     end
-    def find_tenant_by_id
+    def show
         tenant = Tenant.find_by_id(params[:id])
         render json: tenant
     end
