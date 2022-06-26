@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const getAllProperties = (setProperties) =>{
     const indexUrl = "http://localhost:3000/properties";
