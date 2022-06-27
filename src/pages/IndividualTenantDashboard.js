@@ -5,20 +5,22 @@ import {useState, useEffect} from "react"
 import axios from "axios";
 import getTenantById from "../utils/TenantDashboardUtils"
 import {Button} from "react-bootstrap"
+import {getAllProperties} from "../utils/PropertyListUtils"
+import PropertyDropdown from "../components/PropertyDropdownList";
 const TenantDashboard = () =>{
     const tenantId = useParams();
     const [tenant, setTenant] = useState({});
     //controls whether or not the tenant can view properties to rent
-    const [viewProperties, setViewProperties] = useState(false);
+    const [properties, setProperties] = useState([]);
     
         useEffect(() =>{
             getTenantById(tenantId.id, setTenant);
+            getAllProperties(setProperties);
     },[]); 
     return(
         <>
         <h1>Welcome, {tenant.name}</h1>
-        <Button onClick={() => {setViewProperties(!viewProperties)}}>
-            {viewProperties ? "show listings": "collapse listings"}</Button>
+        <PropertyDropdown properties = {properties}/>
 
     
         </>
