@@ -3,23 +3,27 @@
 import {useParams} from "react-router-dom"
 import {useState, useEffect} from "react"
 import axios from "axios";
+import getTenantById from "../utils/TenantDashboardUtils"
+import {Button} from "react-bootstrap"
+import {getAllProperties} from "../utils/PropertyListUtils"
+import PropertyDropdown from "../components/PropertyDropdownList";
 const TenantDashboard = () =>{
     const tenantId = useParams();
-    const [tenant, setTenant] = useState({})
-    const getTenantById = (id) => {
-        const requestUrl = `http://localhost:3000/tenants/${id}`;
-        axios.get(requestUrl).
-        then((response)=>{
-            let tenantData = response.data;
-            console.log(tenantData)
-            setTenant(tenantData);
-        }).catch((error) => {console.log(error)});
-    }
+    const [tenant, setTenant] = useState({});
+    //controls whether or not the tenant can view properties to rent
+    const [properties, setProperties] = useState([]);
+    
         useEffect(() =>{
-            getTenantById(tenantId.id);
+            getTenantById(tenantId.id, setTenant);
+            getAllProperties(setProperties);
     },[]); 
     return(
-        <h1>hello</h1>
+        <>
+        <h1>Welcome, {tenant.name}</h1>
+        <PropertyDropdown properties = {properties}/>
+
+    
+        </>
      
     )
 }
