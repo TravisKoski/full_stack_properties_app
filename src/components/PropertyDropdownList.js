@@ -23,7 +23,7 @@ const PropertyDropdown = (props) =>{
               <tr>
                 <td>{p.name}</td>
                 <td>{p.monthly_rate}</td>
-                <td><Button onClick = {() => {console.log("clicked")}}> Rent this property</Button></td>
+                <td><Button onClick = {() =>props.onRent(props.tenantId, p.id)}> Rent this property</Button></td>
 
               </tr>
 

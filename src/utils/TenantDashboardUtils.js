@@ -7,4 +7,13 @@ const getTenantById = (id, setTenant) => {
         setTenant(tenantData);
     }).catch((error) => {console.log(error)});
 };
-export default getTenantById
+const rentProperty = (tenantId, propertyId) =>{
+    const requestUrl = `http://localhost:3000/tenants/${tenantId}/properties/${propertyId}/rent`;
+    axios.put(requestUrl)
+    .then((response) =>{
+        const rentedProperty = response.data;
+        alert(`Successfully rented ${rentProperty.name}`);
+    })
+    .catch((error) => {console.log(error)});
+};
+export {getTenantById, rentProperty}
