@@ -10,4 +10,7 @@
     Property.create(name: "property #{i}", monthly_rate: i*i)
 end
 
+10.times do |i|
+    Tenant.create(name: "tenant #{i}", age: 2*i)
+end
 

@@ -3,7 +3,7 @@
 import {useParams} from "react-router-dom"
 import {useState, useEffect} from "react"
 import axios from "axios";
-import getTenantById from "../utils/TenantDashboardUtils"
+import {getTenantById, rentProperty} from "../utils/TenantDashboardUtils"
 import {Button} from "react-bootstrap"
 import {getAllProperties} from "../utils/PropertyListUtils"
 import PropertyDropdown from "../components/PropertyDropdownList";
@@ -20,7 +20,7 @@ const TenantDashboard = () =>{
     return(
         <>
         <h1>Welcome, {tenant.name}</h1>
-        <PropertyDropdown properties = {properties}/>
+        <PropertyDropdown properties = {properties} tenantId= {tenantId.id} onRent = {rentProperty}/>
 
     
         </>

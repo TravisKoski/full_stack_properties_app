@@ -19,6 +19,13 @@ class TenantsController < ApplicationController
         target_tenant = Tenant.find_by_id(params[:id])
         target_tenant.destroy
         render json: tenants
+    end
+    #Adds a tenant to a property
+    def rentProperty
+        renter = Tenant.find_by_id(params[:id])
+        property_of_interest = Property.find_by_id(params[:property_id])
+        property_of_interest.tenants << renter
+        render json: property_of_interest
     end    
 
         
