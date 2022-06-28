@@ -8,6 +8,7 @@ import PropertyList from "./pages/PropertyListings.js"
 import CreateListingForm from "./components/CreateListing"
 import TenantList from "./pages/Tenants.js"
 import TenantDashboard from "./pages/IndividualTenantDashboard"
+
 import {
   BrowserRouter as Router,
   Route,
@@ -20,6 +21,7 @@ function App() {
       <Router>
       <Routes>
         <Route exact path = "/" element = {<Home/>}/>
+        {}
         <Route exact path ="/properties" element = {<PropertyList/>}/>
         <Route exact path ="/tenants" element = {<TenantList/>}/>
         <Route exact path ="/tenants/:id" element = {<TenantDashboard/>}/>
