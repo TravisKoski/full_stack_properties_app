@@ -5,6 +5,12 @@ class PropertiesController < ApplicationController
     end
     def create
         @new_property = Property.create(name: params[:name], monthly_rate: params[:monthly_rate].to_i)
+        #notify all tenants in the market that the new property is available via a notification
+        tenants = Tenant.all
+        tenants.each do |tenant|
+            notification = Notification.create(message: "#{@new_property.name} is now on the market!",
+            Tenant_id: tenant.id)
+        end
         render json: @new_property
     end
     def update

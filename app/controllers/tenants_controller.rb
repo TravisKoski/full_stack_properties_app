@@ -1,7 +1,7 @@
 class TenantsController < ApplicationController
     def index
         tenants = Tenant.all
-        render json: tenants
+        render json: tenants.to_json(:include =>:notifications)
     end
     def create
         new_tenant = Tenant.create(
