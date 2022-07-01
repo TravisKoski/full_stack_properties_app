@@ -12,7 +12,7 @@ class TenantsController < ApplicationController
     end
     def show
         tenant = Tenant.find_by_id(params[:id])
-        render json: tenant
+        render json: tenant.to_json(:include =>:notifications)
     end
     def destroy
         tenants = Tenant.all
