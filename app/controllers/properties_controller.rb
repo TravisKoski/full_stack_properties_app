@@ -1,4 +1,7 @@
+require_relative "concerns/secured.rb"
 class PropertiesController < ApplicationController
+    include Secured
+
     def index
         @properties = Property.all
         render json: @properties.to_json(:include =>:tenants)
