@@ -13,6 +13,8 @@ root.render(
     clientId="hGOXxmSi52hBcb8eUBFeXC6aaXEyTxC3"
     redirectUri={window.location.origin}
     useRefreshTokens
+    audience = "http://localhost:3000"
+    scope="read:properties"
 
     cacheLocation="localstorage"
   >
