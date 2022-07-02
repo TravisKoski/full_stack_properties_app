@@ -1,7 +1,7 @@
 class TenantsController < ApplicationController
     def index
         tenants = Tenant.all
-        render json: tenants
+        render json: tenants.to_json(:include =>:notifications)
     end
     def create
         new_tenant = Tenant.create(
@@ -12,7 +12,7 @@ class TenantsController < ApplicationController
     end
     def show
         tenant = Tenant.find_by_id(params[:id])
-        render json: tenant
+        render json: tenant.to_json(:include =>:notifications)
     end
     def destroy
         tenants = Tenant.all

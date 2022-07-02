@@ -7,6 +7,7 @@ import {getTenantById, rentProperty} from "../utils/TenantDashboardUtils"
 import {Button} from "react-bootstrap"
 import {getAllProperties} from "../utils/PropertyListUtils"
 import PropertyDropdown from "../components/PropertyDropdownList";
+import NotificationDropdown from "../components/NotificationDropdown";
 const TenantDashboard = () =>{
     const tenantId = useParams();
     const [tenant, setTenant] = useState({});
@@ -21,6 +22,7 @@ const TenantDashboard = () =>{
         <>
         <h1>Welcome, {tenant.name}</h1>
         <PropertyDropdown properties = {properties} tenantId= {tenantId.id} onRent = {rentProperty}/>
+        <NotificationDropdown tenant = {tenant}/>
 
     
         </>
