@@ -1,8 +1,12 @@
 import axios from "axios"
+import ApiService from "./fetchUtils.js"
 
-const getAllProperties = (setProperties) =>{
+
+const getAllProperties = (setProperties, token) =>{
+    
+    const fetcher = ApiService(token);
     const indexUrl = "http://localhost:3000/properties";
-    axios.get(indexUrl)
+    fetcher.get(indexUrl)
     //convert the returned response into it's json object, and use that value to set the state
     .then((response) => {
         const propertiesJson = response.data;
