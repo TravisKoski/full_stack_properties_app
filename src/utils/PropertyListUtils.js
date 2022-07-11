@@ -1,5 +1,6 @@
 import axios from "axios"
 import ApiService from "./fetchUtils.js"
+import { useAuth0} from "@auth0/auth0-react"
 
 
 const getAllProperties = (setProperties, token) =>{
@@ -16,10 +17,11 @@ const getAllProperties = (setProperties, token) =>{
 
 };
 
-const deleteProperty = (id) => {
+const deleteProperty = async(id, token) => {
     const baseUrl = "http://localhost:3000/";
+    const fetcher = ApiService(token);
     //get the new properties list which excludes the deleted one
-    axios.delete(`${baseUrl}/properties/${id}`)
+    fetcher.delete(`${baseUrl}/properties/${id}`)
     window.location.reload(false);
 
 };

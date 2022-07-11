@@ -8,9 +8,9 @@ const NotificationDropdown = (props) => {
                 View notifictions
             </Dropdown.Toggle>
             <Dropdown.Menu>
-                {notifications.map((notification) =>(
+                {/* {notifications.map((notification) =>(
                     <Dropdown.Item>{notification.message}</Dropdown.Item>
-                ))}
+                ))} */}
             </Dropdown.Menu>
         </Dropdown>
     )

@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 const ApiService = (token = null) => {
-    console.log(`token: ${token.json}`)
     const defaultOptions = {
         headers: {
             Authorization: token ? `Bearer ${token}` : '',
         },
     };
-    console.log(`token: ${token.json}`)
+    
 
 
     return {
