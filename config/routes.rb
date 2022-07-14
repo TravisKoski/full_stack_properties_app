@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'rental_requests/create', to: "rental_requests#create"
+  get 'rental_requests/:property_id/show', to: "rental_requests#show"
+  delete 'rental_requests/:id/destroy', to: "rental_requests#destroy"
   get 'notifications/create'
   resources :tenants
   resources :properties
