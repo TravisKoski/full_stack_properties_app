@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   post 'rental_requests/create', to: "rental_requests#create"
   get 'rental_requests/:property_id/show', to: "rental_requests#show"
+  put "rental_requests/:id/approve", to: "rental_requests#approve"
+  put "rental_requests/:id/deny", to: "rental_requests#deny"
   delete 'rental_requests/:id/destroy', to: "rental_requests#destroy"
   get 'notifications/create'
   resources :tenants
