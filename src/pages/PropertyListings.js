@@ -1,5 +1,5 @@
 // This is where the property listing will come from.
-import PropertyContainer from '../components/propertyListTable';
+import PropertyContainer from '../components/properties/propertyListTable';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Button} from "react-bootstrap"

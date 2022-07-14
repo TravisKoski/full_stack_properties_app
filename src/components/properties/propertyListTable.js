@@ -1,5 +1,5 @@
 import {Table, Button} from "react-bootstrap"
-import TenantDropdownList from "./tenantDropDown.js"
+import TenantDropdownList from "../tenants/tenantDropDown.js"
 import { useAuth0 } from "@auth0/auth0-react"
 import {useEffect, useState} from "react"
 

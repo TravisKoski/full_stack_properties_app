@@ -6,7 +6,7 @@ import axios from "axios";
 import {getTenantById, rentProperty} from "../utils/TenantDashboardUtils"
 import {Button} from "react-bootstrap"
 import {getAllProperties} from "../utils/PropertyListUtils"
-import PropertyDropdown from "../components/PropertyDropdownList";
+import PropertyDropdown from "../components/properties/PropertyDropdownList";
 import NotificationDropdown from "../components/NotificationDropdown";
 const TenantDashboard = () =>{
     const tenantId = useParams();
