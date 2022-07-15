@@ -1,6 +1,9 @@
 import {Dropdown, Button, Table} from "react-bootstrap"
+import {useAuth0} from "@auth0/auth0-react"
 
 const PropertyDropdown = (props) =>{
+
+
     const properties = props.properties; //the list we'll iterate through
 
     return (

@@ -6,7 +6,14 @@ import {useEffect, useState} from "react"
 const PropertyContainer = (props) => {
     let propertyList = props.properties;
     const {getAccessTokenSilently} = useAuth0();
-    const [accessToken, setAccessToken] = useState(null);
+    const [token, setToken] = useState(null);
+    useEffect(()=>{
+        const getAccessToken = async() =>{
+            const jwtToken = await getAccessTokenSilently();
+             setToken(jwtToken);
+        };
+        getAccessToken();
+    })
     return (
         <Table>
             <thead>
@@ -22,7 +29,7 @@ const PropertyContainer = (props) => {
                         <td>{p.name}</td>
                         <td>${p.monthly_rate}</td>
                         <td> <TenantDropdownList property={p}/></td>
-                        <td><Button variant = "primary" onClick = {()=> props.onDelete(p.id)}> Unlist this property</Button></td>
+                        <td><Button variant = "primary" onClick = {()=> props.onDelete(p.id, token)}> Unlist this property</Button></td>
                     </tr>
                 ))}
 
