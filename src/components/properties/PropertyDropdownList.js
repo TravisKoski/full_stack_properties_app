@@ -26,7 +26,7 @@ const PropertyDropdown = (props) =>{
               <tr>
                 <td>{p.name}</td>
                 <td>{p.monthly_rate}</td>
-                <td><Button onClick = {() =>props.onRent(props.tenantId, p.id)}> Make a rental request</Button></td>
+                <td><Button onClick = {() =>props.onRent(parseInt(props.tenantId), parseInt(p.id))}> Make a rental request</Button></td>
 
               </tr>
 

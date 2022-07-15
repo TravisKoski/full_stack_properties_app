@@ -1,6 +1,6 @@
 class RentalRequestsController < ApplicationController
   def create
-    newRequest = RentalRequest.create!(Property_id: params[:property_id], Tenant_id:params[:tenant_id])
+    newRequest = RentalRequest.create!(Property_id: params[:Property_id].to_i, Tenant_id: params[:Tenant_id].to_i)
     render json: newRequest
   end
 
