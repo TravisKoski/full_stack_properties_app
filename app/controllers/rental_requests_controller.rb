@@ -17,8 +17,7 @@ class RentalRequestsController < ApplicationController
       if not property_of_interest.tenants.include?(renter)
         property_of_interest.tenants << renter
         #notify the tenant that their request has been approved
-        note = Notification.create!(message: "Your rental request has been approved
-        for #{property_of_interest.name}", Tenant_id: renter.id)
+        note = Notification.create!(message: "Your rental request has been approved for #{property_of_interest.name}", Tenant_id: renter.id)
         #We can now delete this request since the rental has taken place Successfully
         render json: property_of_interest
         activeRequest.destroy!
