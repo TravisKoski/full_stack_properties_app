@@ -6,7 +6,7 @@ class RentalRequestsController < ApplicationController
 
   def show
     rentalRequests = RentalRequest.where(Property_id: params[:property_id])
-    render json: rentalRequests
+    render json: rentalRequests.to_json(:include => :Tenant)
   end
 
   # approves the rental request, and adds the corresponding tenant to the property
